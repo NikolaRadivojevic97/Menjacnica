@@ -7,12 +7,11 @@ import specifikacijainterfejsa.Interfejs;
 
 public class Menjacnica implements Interfejs{
 	LinkedList<Valuta> valute=new LinkedList<Valuta>();
+
 	public void dodajKurs(Valuta valuta) {
-		if(valuta==null || valute.contains(valuta)) {
-			System.out.println("Unet je null objekat ili vec postoji takav kurs");
-		}else {
+		if(valuta==null || valute.contains(valuta))
+			throw new RuntimeException("Objekat je null ili taj kurs vec postoji");
 		valute.add(valuta);
-		}
 	}
 	public void obrisiKurs(Valuta valuta) {
 		if(valuta==null)
