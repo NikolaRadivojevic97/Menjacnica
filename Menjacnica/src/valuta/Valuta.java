@@ -12,37 +12,49 @@ public class Valuta {
 	public String getNaziv() {
 		return naziv;
 	}
-	public void setNaziv(String naziv) {
+	public void setNaziv(String naziv){
+		if(naziv=="")
+			throw new RuntimeException("Uneli ste prazan sting");
 		this.naziv = naziv;
 	}
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
 	}
-	public void setSkraceniNaziv(String skraceniNaziv) {
+	public void setSkraceniNaziv(String skraceniNaziv){
+		if(skraceniNaziv=="")
+			throw new RuntimeException("Uneli ste prazan sting");
 		this.skraceniNaziv = skraceniNaziv;
 	}
 	public double getSrednjiKurs() {
 		return srednjiKurs;
 	}
-	public void setSrednjiKurs(double srednjiKurs) {
+	public void setSrednjiKurs(double srednjiKurs){
+		if(srednjiKurs<=0)
+			throw new RuntimeException("Kurs mora biti veci od 0");
 		this.srednjiKurs = srednjiKurs;
 	}
 	public double getProdajniKurs() {
 		return prodajniKurs;
 	}
 	public void setProdajniKurs(double prodajniKurs) {
+		if(prodajniKurs<=0)
+			throw new RuntimeException("Kurs mora biti veci od 0");
 		this.prodajniKurs = prodajniKurs;
 	}
 	public double getKupovniKurs() {
 		return kupovniKurs;
 	}
 	public void setKupovniKurs(double kupovniKurs) {
+		if(kupovniKurs<=0)
+			throw new RuntimeException("Kurs mora biti veci od 0");
 		this.kupovniKurs = kupovniKurs;
 	}
 	public GregorianCalendar getDatum() {
 		return datum;
 	}
 	public void setDatum(GregorianCalendar datum) {
+		if(datum.after(new GregorianCalendar()))
+			throw new RuntimeException("Datum ne moze biti posle trenutnog");
 		this.datum = datum;
 	}
 		public int hashCode() {
